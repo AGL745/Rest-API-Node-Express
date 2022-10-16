@@ -1,3 +1,4 @@
+const path = require('path')
 const express = require('express')
 
 //Grabs the http body, decode the information, and append it to the request.body variable
@@ -34,7 +35,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
-    res.send('/new-book.html')
+    res.sendFile(path.join(__dirname +'/new-book.html'))
 })
 
 app.get('/book', (req, res) => {
